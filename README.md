@@ -4,6 +4,7 @@
 ### 1 - npm install
 ### 2 - npm install -g nodemon
 ### 3 - nodemon
+### 4 - Access your localhost:1337
 #### Now is all set and done! I hope you like it :)
 
 ## Links:
