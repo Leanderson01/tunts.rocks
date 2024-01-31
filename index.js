@@ -24,20 +24,17 @@ app.get("/", async (req, res) => {
 
     const data = response.data.values;
 
-    // Verificar se há dados na planilha
     if (!data || data.length < 4) {
-      res.status(400).send("Não há dados suficientes na planilha.");
+      res.status(400).send("No data found.");
       return;
     }
 
     for (let i = 3; i < data.length; i++) {
-      const matricula = data[i][0];
       const faltas = parseInt(data[i][2]);
       const p1 = parseFloat(data[i][3]);
       const p2 = parseFloat(data[i][4]);
       const p3 = parseFloat(data[i][5]);
 
-      // Calcular a média
       const media = (p1 + p2 + p3) / 3;
 
       if (faltas > 0.25 * 60) {
@@ -102,10 +99,10 @@ app.get("/", async (req, res) => {
       });
     }
 
-    res.send("Situações calculadas e escritas com sucesso!");
+    res.send("All done!");
   } catch (error) {
-    console.error("Erro:", error.message);
-    res.status(500).send("Erro ao processar a solicitação");
+    console.error("Error:", error.message);
+    res.status(500).send("Error processing spreadsheet.");
   }
 });
 
